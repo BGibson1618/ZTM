@@ -143,7 +143,11 @@ class BST():
                 if isinstance(tempArray[i], int):
                     levelSize += 2
             printArray.extend([tempArray])
-        print(*printArray)
+        for i in range(len(printArray) - 1):
+            for j in range(len(printArray[i])):
+                if not isinstance(printArray[i][j], int):
+                    printArray[i + 1].insert(2 * j, " ")
+                    printArray[i + 1].insert(2 * j, " ")
         numLevels = len(printArray)
         remLevels = numLevels - 1
         for i in range(numLevels):
@@ -160,7 +164,16 @@ class BST():
             for j in range(2**remLevels - 1):
                 printArray[i].insert(0, " ")
             remLevels -= 1
-        print(*printArray)
+        # print(*printArray)
+        for i in range(len(printArray) - 1):
+            j = 0
+            while j < len(printArray[i]):
+                if isinstance(printArray[i][j], int):
+                    if len(str(printArray[i][j])) > 1:
+                        offset = len(str(printArray[i][j])) - 1
+                        for k in range(offset):
+                            printArray[i].pop(j + 1)
+                j += 1
         for i in range(len(printArray)):
             print(*printArray[i])
 
