@@ -130,30 +130,39 @@ class BST():
                 done.append(nodes.pop(0))
         return self.traverse(nodes, done)
 
-    # def findHeight(self, inputArray, checkIndex = 0, currHeight = 0):
-    #   if checkIndex == (len(inputArray) - 1) / 2:
-    #     return currHeight
-    #   else:
-    #     if isInstance(inputArray[2 * checkIndex + 1], int):
-    #       pass
-
-    # def printTree(self):
-    #     inputArray = self.traverse([self.root], [])
-    #     levelSize = 1
-    #     printArray = []
-    #     evenCounter, oddCounter = 0, 0
-    #     for i in range(2, len(inputArray), 2):
-    #         if type(inputArray[i]) is int:
-    #             evenCounter += 1
-    #     for i in range(1, len(inputArray), 2):
-    #         if type(inputArray[i]) is int:
-    #             oddCounter += 1
-    #     remLevels = max(evenCounter, oddCounter)
-    #     while remLevels >= 0:
-    #         tempArray = []
-    #         nextLine = []
-    #         for i in range(levelSize):
-    #             tempArray.append(inputArray.pop(0))
+    def printTree(self):
+        inputArray = self.traverse([self.root], [])
+        levelSize = 1
+        printArray = []
+        while len(inputArray) > 0:
+            tempArray = []
+            for i in range(levelSize):
+                tempArray.append(inputArray.pop(0))
+            levelSize = 0
+            for i in range(len(tempArray)):
+                if isinstance(tempArray[i], int):
+                    levelSize += 2
+            printArray.extend([tempArray])
+        print(*printArray)
+        numLevels = len(printArray)
+        remLevels = numLevels - 1
+        for i in range(numLevels):
+            tempArray = []
+            for j in range(len(printArray[i])):
+                tempArray.append(printArray[i].pop(0))
+                for k in range(int(2**(remLevels + 1) - 1)):
+                    tempArray.append(" ")
+            remLevels -= 1
+            printArray[i].clear()
+            printArray[i].extend(tempArray)
+        remLevels = numLevels - 1
+        for i in range(numLevels):
+            for j in range(2**remLevels - 1):
+                printArray[i].insert(0, " ")
+            remLevels -= 1
+        print(*printArray)
+        for i in range(len(printArray)):
+            print(*printArray[i])
 
     def printSimple(self):
         inputArray = self.traverse([self.root], [])
