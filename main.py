@@ -1,16 +1,3 @@
-from myBST import BST
+from ZTM_Udemy.firstRecurring import first_recurring
 
-b = BST(20)
-b.insert(10)
-b.insert(30)
-b.insert(60)
-b.insert(18)
-b.insert(4)
-b.insert(25)
-b.insert(8)
-b.insert(3)
-b.insert(5)
-# b.insert(7)
-b.insert(9)
-b.printSimple()
-b.printTree()
+print(first_recurring([1, 1, 2, 3]))
