@@ -1,3 +1,4 @@
-from ZTM_Udemy.firstRecurring import first_recurring
+from ZTM_Udemy.fibo import *
 
-print(first_recurring([1, 1, 2, 3]))
+print(fibo_recur(20))
+print(fibo_iter(7))
