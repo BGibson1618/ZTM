@@ -1,5 +1,3 @@
-#from ZTM_Udemy.myBST import BST
-
 calc1 = 0
 calc2 = 0
 
