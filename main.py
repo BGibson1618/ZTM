@@ -41,7 +41,7 @@ def fibBottomUp(n):
     return arr.pop()
 
 
-n = 8
+n = 6
 
 print("Recursive solution", fibo(n))
 print("Recursive calcs", calc1)
